@@ -1,0 +1,42 @@
+﻿@model Order
+
+@using PustokImagesUploadTask.Enums
+@{
+    int counter = 0;
+    string[] colors = { "secondary", "success", "danger" };
+}
+
+<div class="container">
+    <div class="container"><h3 style="text-align:center">Detail</h3></div>
+    <div>
+
+        <div class="card" style="max-width: 100vw;">
+            <div class="card-body" style="max-width: 100vw;" >
+                <h5 class="card-title">@Model.FullName</h5>
+                <p class="card-text">Order Id : @Model.Id</p>
+                <p class="card-text">E-Mail : @Model.Email</p>
+                <p class="card-text">Phone Number : @Model.PhoneNumber</p>
+                <p class="card-text">Address : @Model.Address</p>
+                <p class="card-text">City : @Model.City</p>
+                <p class="card-text">Country : @Model.Country</p>
+                <p class="card-text">Zip Code : @Model.ZipCode</p>
+                <p class="card-text">Status : <span style="font-size:15px" class="badge badge-@colors[(Model.Status==OrderStatus.Pending?0 : ( Model.Status==OrderStatus.Accepted ? 1 : 2)) ]">@Model.Status</span></p>
+                <p class="card-text">Total : @Model.TotalPrice</p>
+                <p class="card-text">Note : @Model.Note</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                @foreach(var item in Model.OrderItems)
+                {
+                    counter++;
+                    <li class="list-group-item" > @counter - @item.BookName @item.Count X @((item.SalePrice*(1-item.DiscountPrice/100)).ToString("0.00"))</li>
+                }
+            </ul>
+            <div class="card-body">
+                <a asp-action="accept" asp-controller="order" asp-area="Admin" asp-route-id="@Model.Id" class="btn btn-success">Accept</a>
+                <a asp-action="reject" asp-controller="order" asp-area="Admin" asp-route-id="@Model.Id" class="btn btn-danger">Reject</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\PustokImagesUploadTask",
+    "\\PustokImagesUploadTask\\Areas",
+    "\\PustokImagesUploadTask\\Areas\\Admin",
+    "\\PustokImagesUploadTask\\Areas\\Admin\\Views",
+    "\\PustokImagesUploadTask\\Areas\\Admin\\Views\\Category"
+  ],
+  "SelectedNode": "\\PustokImagesUploadTask\\Areas\\Admin\\Views\\Category\\Create.cshtml",
+  "PreviewInSolutionExplorer": false
+}
